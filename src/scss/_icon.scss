@@ -1,0 +1,29 @@
+.fa-brands {
+    &.fa-linkedin {
+        color: $linkedin;
+    }
+
+    &.fa-twitter {
+        color: $twitter;
+    }
+
+    &.fa-github {
+        color: $github;
+    }
+
+    &.fa-gitlab {
+        color: $gitlab;
+    }
+
+    &.fa-symfony {
+        color: $symfony;
+    }
+
+    &.fa-stack-overflow {
+        color: $stack-overflow;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

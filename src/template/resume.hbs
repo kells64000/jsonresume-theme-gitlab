@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="{{resume.meta.lang}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{resume.basics.name}}</title>
+
+        <link rel="icon" href="https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" type="image/png">
+
+        <meta name="description" content="{{resume.basics.summary}}">
+
+        <meta property="og:title" content="{{resume.basics.name}} · {{resume.basics.label}}">
+        <meta property="og:image" content="{{resume.basics.image}}">
+        <meta property="og:description" content="{{resume.basics.summary}}">
+
+        <script src="https://kit.fontawesome.com/d3170a5b4d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
+
+        <style>{{{css}}}</style>
+        <script defer type="module">{{{js}}}</script>
+    </head>
+    <body>
+        <nav class="navbar bg-primary navbar-expand-lg sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://gitlab.com/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" alt="gitlab" width="32" height="32">
+                </a>
+
+                <button class="navbar-toggler border-0"
+                        type="button"
+                        aria-controls="sidenav"
+                        aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                {{#if resume.basics.image}}
+                    <div class="d-none d-lg-flex">
+                        <img class="img-thumbnail" src="{{resume.basics.image}}" alt="{{resume.basics.name}}" width="32" height="32">
+                    </div>
+                {{/if}}
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="sidenav d-none d-lg-flex">
+                    <div class="nav nav-pills flex-column mb-auto" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        {{#each data.sidenav.items}}
+                            <button class="nav-link {{#if @first}}active{{/if}} text-start"
+                                    id="v-pills-{{partial}}-tab"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-{{partial}}"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="v-pills-{{partial}}"
+                                    aria-selected="{{#if @first}}true{{else}}false{{/if}}">
+                                <i class="fa-solid {{icon}} me-2"></i>
+
+                                {{#with (lookup ../data.i18n.sidenav [partial])}}
+                                    <span class="text-capitalize">{{.}}</span>
+                                {{/with}}
+                            </button>
+                        {{/each}}
+                    </div>
+                    <div class="d-grid">
+                        <button type="button"
+                                class="sidenav-toggler btn btn-light rounded-0 d-none d-lg-block">
+                            <i class="fa-solid fa-angles-left"></i>
+                        </button>
+
+                        <button type="button"
+                                class="sidenav-closer btn btn-light rounded-0 d-lg-none">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 offset-lg-3 mt-3 mt-lg-5">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        {{#each data.sidenav.items}}
+                            <div class="tab-pane fade show {{#if @first}}active{{/if}}"
+                                 id="v-pills-{{partial}}"
+                                 role="tabpanel"
+                                 aria-labelledby="v-pills-{{partial}}-tab"
+                                 tabindex="0">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        {{> (lookup . 'partial') @root }}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

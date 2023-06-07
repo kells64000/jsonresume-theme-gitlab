@@ -1,0 +1,42 @@
+<div class="col mx-auto">
+    <section>
+        <ul class="timeline-with-icons">
+            {{#each (sortByDate resume.work)}}
+                <li class="timeline-item mb-5">
+                    <span class="timeline-icon">
+                        <a href="{{url}}" target="_blank">
+                            {{#if logo}}
+                                <img src="{{logo}}" alt="{{name}} logo" height="32" width="32">
+                            {{else}}
+                                <i class="fa-solid fa-briefcase fa-sm fa-fw"></i>
+                            {{/if}}
+                        </a>
+                    </span>
+
+                    <h5 class="fw-bold">{{name}} - {{position}}</h5>
+                    <p class="text-muted mb-2 fw-bold">
+                        {{#if location}}
+                            {{location}} -
+                        {{/if}}
+
+                        {{formatDate startDate ../resume.meta.lang}}
+
+                        {{#if (formatDate endDate ../resume.meta.lang)}}
+                            <i class="fa-solid fa-arrow-right"></i>
+                            {{formatDate endDate ../resume.meta.lang}}
+                        {{/if}}
+                    </p>
+                    <p class="text-muted">
+                        {{summary}}
+                    </p>
+
+                    <ul class="p-0">
+                        {{#each highlights}}
+                            <li>{{.}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</div>

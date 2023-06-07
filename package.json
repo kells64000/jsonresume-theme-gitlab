@@ -1,0 +1,43 @@
+{
+  "name": "jsonresume-theme-gitlab",
+  "version": "1.0.0",
+  "description": "Gitlab theme for JSON Resume",
+  "author": "Kélian Bousquet",
+  "license": "MIT",
+  "keywords": [
+    "jsonresume",
+    "jsonresume-theme",
+    "jsonresume-theme-gitlab"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kells64000/jsonresume-theme-gitlab.git"
+  },
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "resume serve --theme . --silent",
+    "build": "mkdir -p public && npm run export",
+    "export": "resume export public/index --format html --theme .",
+    "lint": "npm run prettier-check && npm run stylelint-check",
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write .",
+    "stylelint-check": "stylelint src/scss/*.scss",
+    "stylelint-prettier-check": "stylelint-config-prettier-check"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "bootstrap": "^5.2.3",
+    "csso": "^5.0.5",
+    "handlebars": "^4.7.7",
+    "rollup": "^3.23.1",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "prettier": "2.8.1",
+    "resume-cli": "^3.0.8",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-twbs-bootstrap": "^7.0.0"
+  }
+}

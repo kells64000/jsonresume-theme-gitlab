@@ -1,0 +1,125 @@
+<div class="col-12 col-md-4 m-auto text-center">
+    {{#if resume.basics.image}}
+        <div class="mb-3">
+            <img class="img-thumbnail w-75" src="{{resume.basics.image}}" alt="{{resume.basics.name}}">
+        </div>
+    {{/if}}
+
+    <h2 class="mb-0">{{resume.basics.name}}</h2>
+    <h3 class="mb-3">{{resume.basics.label}}</h3>
+
+    {{#if resume.basics.email}}
+        <div class="mb-3">
+            <a class="btn btn-outline-secondary" role="button" href="mailto:{{resume.basics.email}}">
+                <span class="icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <span>{{capitalizeFirst data.i18n.basics.contact}}</span>
+            </a>
+        </div>
+    {{/if}}
+
+    <ul class="list-unstyled">
+        {{#if resume.work.length}}
+            {{#unless resume.work.0.endDate}}
+                <li class="mb-3">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>{{resume.work.0.name}}</span>
+                </li>
+            {{/unless}}
+        {{/if}}
+
+        {{#if resume.basics.location}}
+            <li class="mb-3">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>{{resume.basics.location.city}}, {{resume.basics.location.countryCode}}</span>
+            </li>
+        {{/if}}
+
+        {{#if resume.basics.url}}
+            <li class="mb-3">
+                <i class="fa-solid fa-link"></i>
+                <a href="{{resume.basics.url}}" target="_blank">
+                    {{resume.basics.url}}
+                </a>
+            </li>
+        {{/if}}
+    </ul>
+
+    {{#if resume.basics.profiles.length}}
+        <div class="d-flex justify-content-center gap-2 mb-3">
+            {{#each resume.basics.profiles}}
+                <a href="{{url}}" target="_blank">
+                    <i class="fa-brands fa-{{toLowerCase network}} fa-2x"></i>
+                </a>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>
+
+<div class="vr p-0 d-none d-md-block"></div>
+
+<div class="col-12 col-md-6 m-auto">
+    <blockquote class="blockquote mb-3">
+        <p>{{resume.basics.summary}}</p>
+    </blockquote>
+
+    {{#if resume.skills.length}}
+        <div class="mb-3">
+            <h3>{{capitalizeFirst data.i18n.basics.skills}}</h3>
+
+            {{#each resume.skills}}
+                <button class="btn btn-primary my-1"
+                        {{#if keywords}}
+                            data-bs-toggle="tooltip"
+                            data-bs-title="{{#each keywords}}{{#if @index}}, {{/if}}{{this}}{{/each}}"
+                        {{/if}}
+                        >
+                    {{name}}
+                </button>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if resume.languages.length}}
+        <div class="mb-3">
+            <h3>{{capitalizeFirst data.i18n.basics.languages}}</h3>
+
+            {{#each resume.languages}}
+                <button class="btn btn-secondary my-1"
+                        {{#if fluency}}
+                            data-bs-toggle="tooltip"
+                            data-bs-title="{{fluency}}"
+                        {{/if}}
+                        >
+                    {{#if countryCode}}
+                        <span class="fi fi-{{countryCode}}"></span>
+                    {{else}}
+                        {{language}}
+                    {{/if}}
+                </button>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if resume.interests.length}}
+        <div class="mb-3">
+            <h3>{{capitalizeFirst data.i18n.basics.interests}}</h3>
+
+            {{#each resume.interests}}
+                <button class="btn btn-primary my-1"
+                        {{#if keywords}}
+                            data-bs-toggle="tooltip"
+                            data-bs-title="{{#each keywords}}{{#if @index}}, {{/if}}{{this}}{{/each}}"
+                        {{/if}}
+                        >
+                    {{#if icon}}
+                        <i class="{{icon}}"></i>
+                    {{else}}
+                        {{name}}
+                    {{/if}}
+                </button>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

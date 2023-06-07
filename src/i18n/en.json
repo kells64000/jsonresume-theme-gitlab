@@ -1,0 +1,13 @@
+{
+  "sidenav": {
+    "basics": "profile",
+    "work": "experience",
+    "education": "education"
+  },
+  "basics": {
+    "contact": "contact me",
+    "skills": "skills",
+    "languages": "languages",
+    "interests": "hobbies"
+  }
+}

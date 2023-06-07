@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  node:
+    image: node:18-alpine
+    container_name: jsonresume_theme_gitlab_node
+    working_dir: /srv
+    user: node
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv

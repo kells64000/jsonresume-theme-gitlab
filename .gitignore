@@ -1,0 +1,11 @@
+node_modules
+public
+
+npm-debug.log
+resume.html
+resume.pdf
+
+.idea
+.vscode
+
+.DS_Store

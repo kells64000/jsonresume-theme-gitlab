@@ -1,3 +1,13 @@
+.fa-solid {
+    &.fa-republican {
+        color: $elephpant;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
 .fa-brands {
     &.fa-linkedin {
         color: $linkedin;

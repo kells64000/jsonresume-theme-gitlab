@@ -31,9 +31,9 @@ You can add `"countryCode": "countryCode"` to `languages`.
 
 > ℹ️ The countryCode need to be a valid [ISO 3166-1-alpha-2 code](https://www.iso.org/obp/ui/#search).
 
-You can add `"icon": "fontAwesomeIcon"` to `skills` or `interests`.
+You can add `"icon": "fontAwesomeIcon"` to `skills`, `profiles` or `interests`.
 
-> ⚠️ Only free and solid or brands.
+> ⚠️ Only free solid or brands.
 
 ## Local development
 
@@ -44,8 +44,12 @@ You can add `"icon": "fontAwesomeIcon"` to `skills` or `interests`.
 
 ### Install
 
-```docker-compose run --rm node npm i```
+```bash
+docker-compose run --rm node npm i
+```
 
-```docker-compose run --rm --service-ports node npm start```
+```bash
+docker-compose run --rm --service-ports node npm start
+```
 
 [http://localhost:4000/](http://localhost:4000/)

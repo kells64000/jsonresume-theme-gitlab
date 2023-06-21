@@ -50,7 +50,10 @@
         <div class="d-flex justify-content-center gap-2 mb-3">
             {{#each resume.basics.profiles}}
                 <a href="{{url}}" target="_blank">
-                    <i class="fa-brands fa-{{toLowerCase network}} fa-2x"></i>
+                    <i class="{{#if icon}}{{icon}}{{else}}fa-brands fa-{{toLowerCase network}}{{/if}} fa-2x"
+                       data-bs-toggle="tooltip"
+                       data-bs-placement="bottom"
+                       data-bs-title="{{network}}"></i>
                 </a>
             {{/each}}
         </div>
